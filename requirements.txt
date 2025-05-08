@@ -1,0 +1,12 @@
+streamlit
+pandas
+pydantic
+langchain
+langchain-community
+faiss-cpu
+groq
+sentence-transformers
+pypdf
+python-dotenv
+tiktoken
+uuid
