@@ -6,14 +6,17 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import PyPDFLoader
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
+from dotenv import load_dotenv
 from groq import Groq
 import pickle
 import uuid
-
+load_dotenv()
 # App title and description
 st.set_page_config(page_title="BookScribe AI", layout="wide")
 st.title("📚 BookScribe AI")
-
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# Use the keys
+groq_client = Groq(api_key=GROQ_API_KEY)
 st.markdown("""
 Transform your PDFs into interactive knowledge bases with personalized summaries.
 Upload a document, choose your learning style, and start exploring!
@@ -34,9 +37,6 @@ if 'chapter_summaries' not in st.session_state:
 # Sidebar for configuration
 with st.sidebar:
     st.header("Configuration")
-    
-    # Groq API Key input
-    GROQ_API_KEY = st.text_input("Enter Groq API Key", type="password")
     
     # Learning style selector
     learning_style = st.selectbox(
@@ -284,4 +284,5 @@ if st.session_state.current_vector_store and GROQ_API_KEY:
 
 # App footer
 st.markdown("---")
+
 st.markdown("BookScribe AI - Powered by Groq and Hugging Face")
