@@ -3,7 +3,7 @@ import os
 import tempfile
 import pandas as pd
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
@@ -286,4 +286,5 @@ if st.session_state.current_vector_store and GROQ_API_KEY:
 st.markdown("---")
 
 st.markdown("BookScribe AI - Powered by Groq and Hugging Face")
+
 
