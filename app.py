@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import tempfile
 import pandas as pd
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.document_loaders import PyPDFLoader
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -286,3 +286,4 @@ if st.session_state.current_vector_store and GROQ_API_KEY:
 st.markdown("---")
 
 st.markdown("BookScribe AI - Powered by Groq and Hugging Face")
+
